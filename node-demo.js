@@ -37,28 +37,34 @@ fs.readFile('./lib/exampleRoles.json', function (err,data) {
   
   // first, lets see all the current groups and their roles
   var theGroups = roles.getGroups();
-  //sys.puts(JSON.stringify(theGroups, true, 1));
-
+  sys.puts(JSON.stringify(theGroups, true, 1));
   // okay that was interesting, but kinda hard to read. lets try a basic permissions check
   
   
   if("Marak".can('edit a resource')){
-    sys.puts('Marak can "edit a resource" because he is in the "Administrators" group, which inherits the "Moderators" group, which can edit resources.')
+    sys.puts('"Marak" can "edit a resource" because he is in the "Administrators" group, which inherits the "Moderators" group, which can edit resources.')
+  }
+  
+  if("Marak".inGroup("Administrators")){
+    sys.puts('"Marak" is in the "Administrators" group.'); // this is expected
   }
   
   var someuser = "Bob";
-  
+  if(!someuser.inGroup("Administrators")){
+    sys.puts(someuser + ' is not in the "Administrators" group.')
+  }
+
   if(someuser.can('edit a resource')){
     // i don't think so Bob!
   }
   else{
-    sys.puts('Bob cannot "edit a resource" because he is not part of any group that has this role.')
+    sys.puts('"Bob" cannot "edit a resource" because he is not part of any group that has this role.')
   }
   
+  if("Alexis".can("add a resource")) {
+    sys.puts('"Alexis" can "add a resource" since he is the "Moderators" group');
+  }
   
-  
-  
-  sys.puts();
   
   
 });
