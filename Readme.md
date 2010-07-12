@@ -1,26 +1,26 @@
-#roles.js - unreleased, under development
+# roles.js - a super simple JSON based roles management blackbox
+
+##features
+
+###decoupled roles management
+roles.js is not tightly coupled to any authentication system, database, ORM, router, or web framework. this allows you as a developer to integrate roles managment into any existing system
+
+###super simple and intuitive API
+since roles.js is not coupled to any other systems its API focus only on the domain problem of roles management
+
+### pluggable persistence 
+roles.js operates in memory by default, but optionally you can use an ORM such as resourcer to persist your users, groups, and roles to a database 
 
 
-## features
-- really simple and intuitive JSON based role management
-- flexible API
-- no session support,
-- no database support
-- no router support
-- no orm support
-- no requirements
+##entities 
 
-### decoupled javascript - roles.js just handles your roles, you handle the rest!
-
-
-##users
+###users
 users is an array of unique usernames. the names can be numbers or UUIDs if you please, as long as they are unique.
 
-##roles
+###roles
 roles are simply roles that a user might be capable of doing
 
-
-##groups
+###groups
 groups are groups of users and roles. a list of roles is associated with a list of users. groups can also "inherit" roles from other groups creating
 a hierarchical structure of groups, users, and roles. 
 
