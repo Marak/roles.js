@@ -6,7 +6,7 @@
 - flexible API
 - no session support,
 - no database support
-- no router support,
+- no router support
 - no orm support
 - no requirements
 
