@@ -16,7 +16,7 @@
     ]
   },
   {
-    "groups": [
+    "groups": 
       {
         "Guests":{
           "users": ["Guest"],
@@ -33,6 +33,6 @@
           "roles": ["can delete resource"]
         }
       }
-    ]
+    
   }
 ]
