@@ -1,0 +1,38 @@
+[
+  {
+    "users": [
+      "Marak",
+      "Charlie",
+      "Alexis",
+      "Guest"
+    ]
+  }, 
+  {
+    "roles": [
+      "can view resource",
+      "can edit resource",
+      "can add resource",
+      "can delete resource"
+    ]
+  },
+  {
+    "groups": [
+      {
+        "Guests":{
+          "users": ["Guest"],
+          "roles": ["can view resource"],
+          "inherits": []
+        },
+        "Moderators":{
+          "users": ["Charlie", "Alexis"],
+          "roles": ["can edit resource", "can add resource"],
+          "inherits": ["Guests"]
+        },
+        "Administrators":{
+          "users": ["Marak"],
+          "roles": ["can delete resource"]
+        }
+      }
+    ]
+  }
+]
