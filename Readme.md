@@ -1,8 +1,17 @@
 #roles.js
 
 
-##
-completely decoupled from any authentication/routing/orm/database/whatever. roles.js will handle your roles, you can handle the rest.
+## features
+- really simple and intuitive JSON based role management
+- flexible API
+- no session support,
+- no database support
+- no router support,
+- no orm support
+- no requirements
+
+### decoupled javascript - roles.js just handles your roles, you handle the rest!
+
 
 ##users
 users is an array of unique usernames. the names can be numbers or UUIDs if you please, as long as they are unique.
