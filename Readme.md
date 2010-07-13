@@ -1,4 +1,5 @@
 
+
 # roles.js - a super simple node.js JSON based roles management system
 
 ##features
@@ -13,16 +14,50 @@ since roles.js is not coupled to any other systems its API can focus only on the
 roles.js operates in memory by default, but in most cases the developer will need to store roles data in an actual database. since roles.js exposes a JSON-RPC api you can connect roles.js to your existing system using HTTP calls. also, roles.js  is written in node.js, so it can easily be integrated with a number of node.js persistence layers, such as <a href = "http://github.com/cloudhead/resourcer">resourcer</a>.
 
 
-##entities
+#entities
 
 ##keys
 a key is a unique string. a username or auto-incrementing id are good choices.
 
+      "keys": [
+        "Marak",
+        "Charlie",
+        "Alexis",
+        "Isaacs",
+        "Guest"
+      ]
+
 ##roles
-roles are simply actions that a key is capable of performing.
+roles are an action that a key is capable of performing, such as having the permission to modify resourcers.
+
+      "roles": [
+        "can view resource",
+        "can edit resource",
+        "can add resource",
+        "can delete resource"
+      ]
+
 
 ##groups
 groups are associations of a list of keys to a list of roles. groups can also "inherit" associations from other groups. 
+
+      "groups": {
+         "Guests":{
+           "keys": ["Guest"],
+           "roles": ["can view resources"],
+           "inherits": []
+         },
+         "Moderators":{
+           "keys": ["Charlie", "Alexis", "Isaacs"],
+           "roles": ["can edit resources", "can add resources"],
+           "inherits": ["Guests"]
+         },
+         "Administrators":{
+           "keys": ["Marak"],
+           "roles": ["can delete resources"],
+           "inherits": ["Moderators"]
+         }
+       }
 
 ##usage
 
@@ -90,3 +125,10 @@ first we are going to set some default role data
             }
   
           });
+
+
+##faq
+
+**what if i create a circular reference in inheriting roles?**
+
+*you should avoid this, but if you accidentally do, its not that bad. if you create a circular reference in your groups this means that the roles for those group are complete and known. if roles.js encounters a circular reference it will break out after a set number of iterations and return the correct roles.*
