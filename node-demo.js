@@ -4,7 +4,7 @@ roles = require('./lib/roles');
 
 // first we are going to set some default role data
 roles.load({
-  "users": [
+  "keys": [
     "Marak",
     "Charlie",
     "Alexis",
@@ -19,17 +19,17 @@ roles.load({
   ],
   "groups": {
     "Guests":{
-      "users": ["Guest"],
+      "keys": ["Guest"],
       "roles": ["can view resources"],
       "inherits": []
     },
     "Moderators":{
-      "users": ["Charlie", "Alexis", "Isaacs"],
+      "keys": ["Charlie", "Alexis", "Isaacs"],
       "roles": ["can edit resources", "can add resources"],
       "inherits": ["Guests"]
     },
     "Administrators":{
-      "users": ["Marak"],
+      "keys": ["Marak"],
       "roles": ["can delete resources"]
     }
   }
