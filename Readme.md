@@ -1,30 +1,35 @@
-# roles.js - a super simple JSON based roles management blackbox
+
+# roles.js - a super simple node.js JSON based roles management system
 
 ##features
 
 ###decoupled roles management
-roles.js is not tightly coupled to any authentication system, database, ORM, router, or web framework. this allows you as a developer to integrate roles managment into any existing system
+roles.js is not tightly coupled to any authentication system, database, ORM, router, or web framework. this enables you, the developer, to integrate role management into any existing software system with a few simple HTTP calls sending and receiving JSON
 
 ###super simple and intuitive API
-since roles.js is not coupled to any other systems its API focus only on the domain problem of roles management
+since roles.js is not coupled to any other systems its API can focus only on the domain problem of roles management. utilizing the node.js <a href = "http://nodejs.org/api.html#http-server-152">http class</a> roles.js exposes robust JSON-RPC api methods. <a href = "#API">read more</a>
 
 ### pluggable persistence 
-roles.js operates in memory by default, but optionally you can use an ORM such as resourcer to persist your users, groups, and roles to a database 
+roles.js operates in memory by default, but in most cases the developer will need to store roles data in an actual database. since roles.js exposes a JSON-RPC api you can connect roles.js to your existing system using HTTP calls. also, roles.js  is written in node.js, so it can easily be integrated with a number of node.js modules, such as <a href = "http://github.com/cloudhead/resourcer">resourcer</a>.
 
 
-##entities 
+##entities
 
-###users
-users is an array of unique usernames. the names can be numbers or UUIDs if you please, as long as they are unique.
+##keys
+a key is a unique string. a username or auto-incrementing id are good choices.
 
-###roles
-roles are simply roles that a user might be capable of doing
+##roles
+roles are simply actions that a key is capable of performing.
 
-###groups
-groups are groups of users and roles. a list of roles is associated with a list of users. groups can also "inherit" roles from other groups creating
-a hierarchical structure of groups, users, and roles. 
+##groups
+groups are associations of a list of keys to a list of roles. groups can also "inherit" associations from other groups. 
 
 ##usage
+
+first we are going to set some default role data
+
+
+
 
           // load up some example roles for basic role management on resources
           fs.readFile('./lib/exampleRoles.json', function (err,data) {
