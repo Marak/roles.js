@@ -35,14 +35,25 @@ roles.load({
   }
 });
 
-// now we can start to perform some basic role checks
+// basic permission checks
+// all of these statements will evaluate to true
+
 if("Marak".can('delete resources')){
   sys.puts('Marak can delete resources.'); 
 }
 
-if("Noob".can('delete resources')){
-  sys.puts('Noob can delete resources.'); 
+if(!"Noob".can('delete resources')){
+  sys.puts('Noob cannot delete resources.'); 
 }
+
+if(!"Marak".cannot('delete resources')){
+  sys.puts('Marak can delete resources.'); 
+}
+
+if("Noob".cannot('delete resources')){
+  sys.puts('Noob cannot delete resources.'); 
+}
+
 
 return;
 
