@@ -36,10 +36,8 @@ roles.load({
 });
 
 // basic permission checks
-// all of these statements will evaluate to true
-
 if("Marak".can('delete resources')){
-  sys.puts('Marak can delete resources.'); 
+  sys.puts('Marak can delete resources'); 
 }
 
 if(!"Noob".can('delete resources')){
@@ -54,23 +52,27 @@ if("Noob".cannot('delete resources')){
   sys.puts('Noob cannot delete resources.'); 
 }
 
+// basic group checks
+if("Marak".isIn('Administrators')){
+  sys.puts('Marak is in Administrators'); 
+}
+
+if(!"Marak".isntIn('Administrators')){
+  sys.puts('Marak is in Administrators'); 
+}
+
+if(!"Noob".isIn('Administrators')){
+  sys.puts('Noob is not in Administrators'); 
+}
+
+if("Noob".isntIn('Administrators')){
+  sys.puts('Noob is not in Administrators'); 
+}
 
 return;
 
 
-if("Marak".can('delete resources')){
-  sys.puts('Marak can delete resources.')
-}
 
-
-
-
-
-if(!"Noob".inGroup("Administrators")){
-  sys.puts('Noob is not in the Administrators group.'); // this is expected
-}
-
-return;
 
 // add a user
 roles.addUser('Bob');
