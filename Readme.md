@@ -63,22 +63,25 @@ groups are associations of a list of keys to a list of roles. groups can also "i
 
 first, lets assume we have loaded the following dataset <a href = "exampleRoles.json">exampleRoles.json</a> using roles.load()
 
-// basic permission checks
-if("Marak".can('delete resources')){
-  sys.puts('Marak can delete resources'); 
-}
+###basic permission checks
+ 
+(all the following statements will evaluate to "true")
 
-if(!"Noob".can('delete resources')){
-  sys.puts('Noob cannot delete resources.'); 
-}
+      if("Marak".can('delete resources')){
+        sys.puts('Marak can delete resources'); 
+      }
 
-if(!"Marak".cannot('delete resources')){
-  sys.puts('Marak can delete resources.'); 
-}
+      if(!"Noob".can('delete resources')){
+        sys.puts('Noob cannot delete resources.'); 
+      }
 
-if("Noob".cannot('delete resources')){
-  sys.puts('Noob cannot delete resources.'); 
-}
+      if(!"Marak".cannot('delete resources')){
+        sys.puts('Marak can delete resources.'); 
+      }
+
+      if("Noob".cannot('delete resources')){
+        sys.puts('Noob cannot delete resources.'); 
+      }
 
 ##faq
 
