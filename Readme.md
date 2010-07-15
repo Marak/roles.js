@@ -86,10 +86,13 @@ first, lets assume we have loaded the following dataset <a href = "exampleRoles.
 ##faq
 
 **how can i use this in my application stack?**
+
 *there are many integration options. if you are using node.js you can require roles.js as a CommonJS module. if your application is not node.js you can use HTTP requests against roles.js self-contained JSON-RPC web-service*
 
 **is my role data stored in a database?**
+
 *by default, no. roles.js is configured to only exist in memory, but you there are many persistence options available.*
 
 **what if i create a circular reference in inheriting roles?**
+
 *you should avoid this, but if you accidentally do, its not that bad. if you create a circular reference in your groups this means that the roles for those groups are complete, and known. if roles.js encounters a circular reference it will break out after a set number of iterations and return the correct roles.*
