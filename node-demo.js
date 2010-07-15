@@ -12,25 +12,25 @@ roles.load({
     "Guest"
   ],
   "roles": [
-    "can view resources",
-    "can edit resources",
-    "can add resources",
-    "can delete resources"
+    "view resources",
+    "edit resources",
+    "add resources",
+    "delete resources"
   ],
   "groups": {
     "Guests":{
       "keys": ["Guest"],
-      "roles": ["can view resources"],
+      "roles": ["view resources"],
       "inherits": []
     },
     "Moderators":{
       "keys": ["Charlie", "Alexis", "Isaacs"],
-      "roles": ["can edit resources", "can add resources"],
+      "roles": ["edit resources", "add resources"],
       "inherits": ["Guests"]
     },
     "Administrators":{
       "keys": ["Marak"],
-      "roles": ["can delete resources"],
+      "roles": ["delete resources"],
       "inherits": ["Moderators"]
       
     }
