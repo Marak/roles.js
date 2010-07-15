@@ -30,7 +30,9 @@ roles.load({
     },
     "Administrators":{
       "keys": ["Marak"],
-      "roles": ["can delete resources"]
+      "roles": ["can delete resources"],
+      "inherits": ["Moderators"]
+      
     }
   }
 });
@@ -39,7 +41,7 @@ roles.load({
 if("Marak".can('delete resources')){
   sys.puts('Marak can delete resources'); 
 }
-
+return;
 if(!"Noob".can('delete resources')){
   sys.puts('Noob cannot delete resources.'); 
 }

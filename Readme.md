@@ -5,7 +5,7 @@
 ##features
 
 ###decoupled roles management
-roles.js is not tightly coupled to any authentication system, database, ORM, router, or web framework. this enables you, the developer, to integrate role management into any existing software system with a few simple HTTP calls sending and receiving JSON.
+roles.js is not tightly coupled to any authentication system, database, ORM, router, or web framework. this enables you, the developer, to integrate role management into any existing software system with a few simple api calls
 
 ###super simple and intuitive API
 since roles.js is not coupled to any other systems its API can focus only on the domain problem of roles management. utilizing the node.js <a href = "http://nodejs.org/api.html#http-server-152">http class</a>, roles.js exposes robust JSON-RPC api methods. <a href = "#API">read more</a>
