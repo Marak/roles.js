@@ -41,7 +41,7 @@ roles.load({
 if("Marak".can('delete resources')){
   sys.puts('Marak can delete resources'); 
 }
-return;
+
 if(!"Noob".can('delete resources')){
   sys.puts('Noob cannot delete resources.'); 
 }
@@ -54,6 +54,7 @@ if("Noob".cannot('delete resources')){
   sys.puts('Noob cannot delete resources.'); 
 }
 
+return;
 // basic group checks
 if("Marak".isIn('Administrators')){
   sys.puts('Marak is in Administrators'); 
