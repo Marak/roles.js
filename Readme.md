@@ -31,10 +31,10 @@ a key is a unique string. a username or auto-incrementing id are good choices.
 roles are an action that a key is capable of performing, such as having the permission to modify resourcers.
 
       "roles": [
-        "can view resource",
-        "can edit resource",
-        "can add resource",
-        "can delete resource"
+        "view resource",
+        "edit resource",
+        "add resource",
+        "delete resource"
       ]
 
 
@@ -44,17 +44,17 @@ groups are associations of a list of keys to a list of roles. groups can also "i
       "groups": {
          "Guests":{
            "keys": ["Guest"],
-           "roles": ["can view resources"],
+           "roles": ["view resource"],
            "inherits": []
          },
          "Moderators":{
            "keys": ["Charlie", "Alexis", "Isaacs"],
-           "roles": ["can edit resources", "can add resources"],
+           "roles": ["edit resource", "add resource"],
            "inherits": ["Guests"]
          },
          "Administrators":{
            "keys": ["Marak"],
-           "roles": ["can delete resources"],
+           "roles": ["delete resource"],
            "inherits": ["Moderators"]
          }
        }
