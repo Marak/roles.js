@@ -2,40 +2,47 @@ var sys = require('sys'),
 fs = require('fs')
 roles = require('./lib/roles');
 
+// define some users here
+var users = {
+  "Marak": ["Administrator", "Moderator", "Guest"],
+  "Charlie": ["Moderator", "Guest"],
+  "Alexis": ["Moderator", "Guest"],
+  "Isaacs": ["Moderator", "Guest"],
+  "Guest": ["Guest"]
+};
+
 // first we are going to set some default role data
 roles.load({
-  "keys": [
-    "Marak",
-    "Charlie",
-    "Alexis",
-    "Isaacs",
-    "Guest"
+  "permissions": [
+    "view page",
+    "edit page",
+    "add page",
+    "delete page"
   ],
-  "roles": [
-    "view resources",
-    "edit resources",
-    "add resources",
-    "delete resources"
-  ],
-  "groups": {
-    "Guests":{
-      "keys": ["Guest"],
-      "roles": ["view resources"],
-      "inherits": []
+  "roles": {
+    "Guest":{
+      "roles": ["view page"]
     },
-    "Moderators":{
-      "keys": ["Charlie", "Alexis", "Isaacs"],
-      "roles": ["edit resources", "add resources"],
-      "inherits": ["Guests"]
+    "Moderator":{
+      "roles": ["edit page", "add page"]
     },
-    "Administrators":{
-      "keys": ["Marak"],
-      "roles": ["delete resources"],
-      "inherits": ["Moderators"]
-      
+    "Administrator":{
+      "roles": ["delete page"]
     }
   }
 });
+
+
+{"Marak":"Administrator"}
+
+"users": [
+  "Marak"
+  "Charlie",
+  "Alexis",
+  "Isaacs",
+  "Guest"
+],
+
 
 // basic permission checks
 if("Marak".can('delete resources')){

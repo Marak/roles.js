@@ -1,4 +1,4 @@
-
+#(unreleased and unfinished, donut use)
 
 # roles.js - a super simple node.js JSON based roles management system
 
@@ -28,13 +28,14 @@ a key is a unique string. a username or auto-incrementing id are good choices.
       ]
 
 ##roles
-roles are an action that a key is capable of performing, such as having the permission to modify resourcers.
+roles are an action that a key is capable of performing, such as having the permission to modify resources. roles can be ANY arbitrary string, 
+remember a "role" doesn't actually do anything, its just a label.
 
       "roles": [
-        "view resource",
-        "edit resource",
-        "add resource",
-        "delete resource"
+        "view resources",
+        "edit resources",
+        "add resources",
+        "delete resources"
       ]
 
 
@@ -44,20 +45,26 @@ groups are associations of a list of keys to a list of roles. groups can also "i
       "groups": {
          "Guests":{
            "keys": ["Guest"],
-           "roles": ["view resource"],
+           "roles": ["view resources"],
            "inherits": []
          },
          "Moderators":{
            "keys": ["Charlie", "Alexis", "Isaacs"],
-           "roles": ["edit resource", "add resource"],
+           "roles": ["edit resources", "add resources"],
            "inherits": ["Guests"]
          },
          "Administrators":{
            "keys": ["Marak"],
-           "roles": ["delete resource"],
+           "roles": ["delete resources"],
            "inherits": ["Moderators"]
          }
        }
+
+in this example: 
+
+"Administrators" inherit the roles of "Moderators" and "Guests"
+"Moderators" have all the roles of "Guests"
+
 
 ##usage
 
